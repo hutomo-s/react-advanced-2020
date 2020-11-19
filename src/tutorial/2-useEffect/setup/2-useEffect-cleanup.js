@@ -13,6 +13,7 @@ const UseEffectCleanup = () => {
 
   // use effect yang berbeda bisa dipanggil beberapa kali
   // dalam satu komponen
+  // parameter: callback function
   useEffect( () => {
     console.log("useEffect")
 
@@ -23,6 +24,7 @@ const UseEffectCleanup = () => {
     // window.addEventListener('resize', checkSize)
     
     // contoh yang benar 2
+    // parameter: callback function
     window.addEventListener('resize', () => {
       setValue(window.innerWidth)
     })
@@ -30,6 +32,8 @@ const UseEffectCleanup = () => {
     // untuk mencegah memory leak
     // ketika aplikasi semakin besar
     // dibutuhkan cleanup function
+    // contoh: ketika show/hide sebuah component
+    // akan menambah jumlah event listener secara signifikan
     return () => {
       console.log("cleanup")
       window.removeEventListener('resize', checkSize)
