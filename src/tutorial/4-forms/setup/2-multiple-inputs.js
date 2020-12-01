@@ -7,24 +7,29 @@ import React, { useState } from 'react';
 // dynamic object keys
 
 const ControlledInputs = () => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [email, setEmail] = useState('');
+  const [person, setPerson] = useState({
+    firstName: '',
+    email: '',
+    age: ''
+  })
   const [people, setPeople] = useState([]);
 
+  const handleChange = (e) => {
+    const fieldName = e.target.name
+    const fieldValue = e.target.value
+    setPerson({...person, [fieldName]: fieldValue})
+  }
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (firstName && email) {
-      const person = { id: new Date().getTime().toString(), firstName, email };
-      console.log(person);
-      setPeople((people) => {
-        return [...people, person];
-      });
-      setFirstName('');
-      setEmail('');
-    } else {
-      console.log('empty values');
-    }
-  };
+    e.preventDefault()
+    
+    setPeople((people) => {
+      return [...people, person]
+    })
+  }
+
   return (
     <>
       <article>
@@ -35,8 +40,8 @@ const ControlledInputs = () => {
               type='text'
               id='firstName'
               name='firstName'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={person.firstName}
+              onChange={handleChange}
             />
           </div>
           <div className='form-control'>
@@ -45,13 +50,13 @@ const ControlledInputs = () => {
               type='email'
               id='email'
               name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={person.email}
+              onChange={handleChange}
             />
           </div>
           <button type='submit'>add person</button>
         </form>
-        {people.map((person, index) => {
+        {people.map((person) => {
           const { id, firstName, email } = person;
           return (
             <div className='item' key={id}>
