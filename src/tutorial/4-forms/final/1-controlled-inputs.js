@@ -15,7 +15,10 @@ const ControlledInputs = () => {
     if (firstName && email) {
       const person = { id: new Date().getTime().toString(), firstName, email };
       console.log(person);
+
+      // https://dmitripavlutin.com/react-usestate-hook-guide/#14-updating-state
       setPeople((people) => {
+        // https://sbalagop.wordpress.com/2017/07/15/copy-concat-prepend-javascript-array-with-es6-spread/
         return [...people, person];
       });
       setFirstName('');
