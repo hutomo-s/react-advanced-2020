@@ -16,10 +16,12 @@ const ControlledInputs = () => {
   })
   const [people, setPeople] = useState([]);
 
+  // https://www.samanthaming.com/tidbits/37-dynamic-property-name-with-es6/
   const handleChange = (e) => {
+    const id = new Date().getTime().toString()
     const fieldName = e.target.name
     const fieldValue = e.target.value
-    setPerson({...person, [fieldName]: fieldValue})
+    setPerson({...person, [fieldName]: fieldValue, id})
   }
 
   const handleSubmit = (e) => {
