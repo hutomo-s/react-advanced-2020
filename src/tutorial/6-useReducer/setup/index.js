@@ -29,6 +29,16 @@ const reducer = (state, action) => {
     }
   }
 
+  if(action.type === 'REMOVE_PERSON') {
+    const newPeople = state.people.filter((person) => {
+      return person.id !== action.payload
+    })
+    return {
+      ...state,
+      people: newPeople
+    }
+  }
+
   // throw error
   throw new Error('no matching action type')
 }
@@ -66,6 +76,10 @@ const Index = () => {
     dispatch({type: 'CLOSE_MODAL'})
   }
 
+  const removePerson = (personId) => {
+    dispatch({type: 'REMOVE_PERSON', payload: personId})
+  }
+
   return (<>
     {/*{showModal && <Modal />} */}
     {state.isModalOpen && <Modal closeModal={closeModal} modalContent={state.modalContent} />}
@@ -86,7 +100,8 @@ const Index = () => {
       {state.people.map((person) => {
         return (
           <div className="item" key={person.id}>
-            {person.name}
+            <h4>{person.name}</h4>
+            <button onClick={() => removePerson(person.id)}>Remove</button>
           </div>
         )
       })}  
