@@ -1,0 +1,16 @@
+# dependencies with old create react app
+npm uninstall -g create-react-app
+
+# testing purpose
+npx create-react-app my-app
+cd my-app
+npm start
+
+# back to folder
+rm -rf node_modules
+npm install
+npm audit fix
+npm audit fix --force
+npm start
+
+# credit to wijoyo10@gmail.com
