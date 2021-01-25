@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import defaultImage from './../../../assets/default-image.jpeg'
 
 const Product = ({image, name, price}) => {
@@ -15,5 +17,15 @@ const Product = ({image, name, price}) => {
     </article>
   );
 };
+
+// remember: propTypes syntax is camel case
+// this code is to typechecking of props that being passed
+// into the component
+// this typecheck will be run on development
+Product.propTypes = {
+  image: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired
+}
 
 export default Product;
