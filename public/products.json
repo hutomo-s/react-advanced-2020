@@ -1,5 +1,6 @@
 [
     {
+        "id": "20210307171501-lenovo-yoga-slim7",
         "fields": {
             "name": "LENOVO Yoga Slim 7 14IIL-5RID 14 inch Full HD/Intel Core i5-1035G1/8GB/512GB SSD/Nvidia MX350 2GB/Win10 Home+Office 2019 - Slate Grey",
             "price": 14399000,
@@ -11,6 +12,7 @@
         }
     },
 	{
+        "id": "20210307171502-asus-s433eq-am553ips",
         "fields": {
             "name": "ASUS S433EQ-AM553IPS I5-1135G7 8GB 512GB SSD MX350 2GB FHD IPS W10 OHS",
             "price": 13699000,
