@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useFetch } from '../../9-custom-hooks/final/2-useFetch';
 
-const url = 'https://course-api.netlify.app/api/javascript-store-products';
+//const url = 'https://course-api.netlify.app/api/javascript-store-products';
+const url = 'https://raw.githubusercontent.com/hutomo-s/react-advanced-2020/master/public/products.json';
+
 // every time props or state changes, component re-renders
 const calculateMostExpensive = (data) => {
   console.log('hello ');
